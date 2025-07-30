@@ -1,330 +1,340 @@
 {
-  "Japanese FF Challenge 450 at Alsace": [
-    {
-      "user": ".chonix",
-      "time": "0:17:060"
-    },
-    {
-      "user": "racer_x",
-      "time": "0:17:155"
-    },
-    {
-      "user": "speeddemon",
-      "time": "0:17:320"
-    },
-    {
-      "user": "trackstar",
-      "time": "0:17:480"
-    },
-    {
-      "user": "blazefast",
-      "time": "0:17:595"
-    },
-    {
-      "user": "quick_shift",
-      "time": "0:17:630"
-    },
-    {
-      "user": "apex_ace",
-      "time": "0:17:710"
-    },
-    {
-      "user": "drift_king",
-      "time": "0:17:805"
-    },
-    {
-      "user": "lap_legend",
-      "time": "0:17:890"
-    },
-    {
-      "user": "gear_head",
-      "time": "0:17:950"
-    },
-    {
-      "user": "tire_shredder",
-      "time": "0:18:015"
-    },
-    {
-      "user": "pit_stop_pro",
-      "time": "0:18:080"
-    },
-    {
-      "user": "finish_line_fanatic",
-      "time": "0:18:160"
-    },
-    {
-      "user": "piston_power",
-      "time": "0:18:235"
-    },
-    {
-      "user": "rev_master",
-      "time": "0:18:300"
-    },
-    {
-      "user": "cone_dodger",
-      "time": "0:18:370"
-    },
-    {
-      "user": "turbo_tyrant",
-      "time": "0:18:450"
-    },
-    {
-      "user": "corner_carver",
-      "time": "0:18:525"
-    },
-    {
-      "user": "road_runner",
-      "time": "0:18:600"
-    },
-    {
-      "user": "flash_fender",
-      "time": "0:18:680"
-    }
-  ],
-  "Japanese 4WD Challenge 600 at Red Bull Ring": [
-    {
-      "user": ".chonix",
-      "time": "0:33:990"
-    },
-    {
-      "user": "nitro_nick",
-      "time": "0:34:120"
-    },
-    {
-      "user": "cornerking",
-      "time": "0:34:305"
-    },
-    {
-      "user": "turbo_tim",
-      "time": "0:34:450"
-    },
-    {
-      "user": "fastlane_fred",
-      "time": "0:34:610"
-    },
-    {
-      "user": "gravel_gorilla",
-      "time": "0:34:750"
-    },
-    {
-      "user": "rally_racer",
-      "time": "0:34:880"
-    },
-    {
-      "user": "power_slide",
-      "time": "0:35:010"
-    },
-    {
-      "user": "track_conqueror",
-      "time": "0:35:140"
-    },
-    {
-      "user": "grip_guru",
-      "time": "0:35:270"
-    },
-    {
-      "user": "engine_expert",
-      "time": "0:35:400"
-    },
-    {
-      "user": "speedy_sparrow",
-      "time": "0:35:530"
-    },
-    {
-      "user": "redline_rambler",
-      "time": "0:35:660"
-    },
-    {
-      "user": "circuit_champion",
-      "time": "0:35:790"
-    },
-    {
-      "user": "momentum_master",
-      "time": "0:35:920"
-    },
-    {
-      "user": "chase_car",
-      "time": "0:36:050"
-    },
-    {
-      "user": "drag_daddy",
-      "time": "0:36:180"
-    },
-    {
-      "user": "road_reaper",
-      "time": "0:36:310"
-    },
-    {
-      "user": "acceleration_addict",
-      "time": "0:36:440"
-    },
-    {
-      "user": "wheel_wizard",
-      "time": "0:36:570"
-    }
-  ],
-  "European Hot Hatch Challenge 500 at Nürburgring Nordschleife": [
-    {
-      "user": "german_grip",
-      "time": "7:12:500"
-    },
-    {
-      "user": "autobahn_ace",
-      "time": "7:12:345"
-    },
-    {
-      "user": "nordschleife_nut",
-      "time": "7:12:780"
-    },
-    {
-      "user": "track_hunter",
-      "time": "7:12:999"
-    },
-    {
-      "user": "speed_demon_de",
-      "time": "7:13:150"
-    },
-    {
-      "user": "ring_runner",
-      "time": "7:13:300"
-    },
-    {
-      "user": "green_hell_goer",
-      "time": "7:13:480"
-    },
-    {
-      "user": "apex_predator",
-      "time": "7:13:650"
-    },
-    {
-      "user": "hatchback_hero",
-      "time": "7:13:820"
-    },
-    {
-      "user": "trackday_terry",
-      "time": "7:13:990"
-    },
-    {
-      "user": "curve_commander",
-      "time": "7:14:150"
-    },
-    {
-      "user": "european_express",
-      "time": "7:14:300"
-    },
-    {
-      "user": "precision_pete",
-      "time": "7:14:480"
-    },
-    {
-      "user": "circuit_slugger",
-      "time": "7:14:650"
-    },
-    {
-      "user": "fast_frank",
-      "time": "7:14:820"
-    },
-    {
-      "user": "hot_lap_harold",
-      "time": "7:14:990"
-    },
-    {
-      "user": "racetrack_ron",
-      "time": "7:15:150"
-    },
-    {
-      "user": "endurance_ed",
-      "time": "7:15:300"
-    },
-    {
-      "user": "tight_turn_tim",
-      "time": "7:15:480"
-    },
-    {
-      "user": "lap_master_luke",
-      "time": "7:15:650"
-    }
-  ],
-  "American Muscle Car Series 700 at Daytona International Speedway": [
-    {
-      "user": "thunder_road",
-      "time": "0:45:120"
-    },
-    {
-      "user": "muscle_mike",
-      "time": "0:45:280"
-    },
-    {
-      "user": "daytona_dreamer",
-      "time": "0:45:400"
-    },
-    {
-      "user": "v8_virtuoso",
-      "time": "0:45:555"
-    },
-    {
-      "user": "straight_line_steve",
-      "time": "0:45:700"
-    },
-    {
-      "user": "oval_overlord",
-      "time": "0:45:850"
-    },
-    {
-      "user": "horsepower_hank",
-      "time": "0:46:000"
-    },
-    {
-      "user": "speedway_sam",
-      "time": "0:46:150"
-    },
-    {
-      "user": "burnout_bobby",
-      "time": "0:46:300"
-    },
-    {
-      "user": "flag_fanatic",
-      "time": "0:46:450"
-    },
-    {
-      "user": "draft_dominator",
-      "time": "0:46:600"
-    },
-    {
-      "user": "track_terror",
-      "time": "0:46:750"
-    },
-    {
-      "user": "pony_power",
-      "time": "0:46:900"
-    },
-    {
-      "user": "strip_strider",
-      "time": "0:47:050"
-    },
-    {
-      "user": "legendary_lane",
-      "time": "0:47:200"
-    },
-    {
-      "user": "grid_ghost",
-      "time": "0:47:350"
-    },
-    {
-      "user": "champion_charlie",
-      "time": "0:47:500"
-    },
-    {
-      "user": "blazing_bill",
-      "time": "0:47:650"
-    },
-    {
-      "user": "revvin_ryan",
-      "time": "0:47:800"
-    },
-    {
-      "user": "fastest_frankie",
-      "time": "0:47:950"
-    }
-  ]
+    "Japanese FF Challenge 450 at Alsace": [
+        {
+            "user": ".chonix",
+            "time": "0:17:060"
+        },
+        {
+            "user": "racer_x",
+            "time": "0:17:155"
+        },
+        {
+            "user": "speeddemon",
+            "time": "0:17:320"
+        },
+        {
+            "user": "trackstar",
+            "time": "0:17:480"
+        },
+        {
+            "user": "blazefast",
+            "time": "0:17:595"
+        },
+        {
+            "user": "quick_shift",
+            "time": "0:17:630"
+        },
+        {
+            "user": "apex_ace",
+            "time": "0:17:710"
+        },
+        {
+            "user": "drift_king",
+            "time": "0:17:805"
+        },
+        {
+            "user": "lap_legend",
+            "time": "0:17:890"
+        },
+        {
+            "user": "gear_head",
+            "time": "0:17:950"
+        },
+        {
+            "user": "tire_shredder",
+            "time": "0:18:015"
+        },
+        {
+            "user": "pit_stop_pro",
+            "time": "0:18:080"
+        },
+        {
+            "user": "finish_line_fanatic",
+            "time": "0:18:160"
+        },
+        {
+            "user": "piston_power",
+            "time": "0:18:235"
+        },
+        {
+            "user": "rev_master",
+            "time": "0:18:300"
+        },
+        {
+            "user": "cone_dodger",
+            "time": "0:18:370"
+        },
+        {
+            "user": "turbo_tyrant",
+            "time": "0:18:450"
+        },
+        {
+            "user": "corner_carver",
+            "time": "0:18:525"
+        },
+        {
+            "user": "road_runner",
+            "time": "0:18:600"
+        },
+        {
+            "user": "flash_fender",
+            "time": "0:18:680"
+        },
+        {
+            "user": "Dexter Pippa",
+            "time": "5:09.999"
+        }
+    ],
+    "Japanese 4WD Challenge 600 at Red Bull Ring": [
+        {
+            "user": ".chonix",
+            "time": "0:33:990"
+        },
+        {
+            "user": "nitro_nick",
+            "time": "0:34:120"
+        },
+        {
+            "user": "cornerking",
+            "time": "0:34:305"
+        },
+        {
+            "user": "turbo_tim",
+            "time": "0:34:450"
+        },
+        {
+            "user": "fastlane_fred",
+            "time": "0:34:610"
+        },
+        {
+            "user": "gravel_gorilla",
+            "time": "0:34:750"
+        },
+        {
+            "user": "rally_racer",
+            "time": "0:34:880"
+        },
+        {
+            "user": "power_slide",
+            "time": "0:35:010"
+        },
+        {
+            "user": "track_conqueror",
+            "time": "0:35:140"
+        },
+        {
+            "user": "grip_guru",
+            "time": "0:35:270"
+        },
+        {
+            "user": "engine_expert",
+            "time": "0:35:400"
+        },
+        {
+            "user": "speedy_sparrow",
+            "time": "0:35:530"
+        },
+        {
+            "user": "redline_rambler",
+            "time": "0:35:660"
+        },
+        {
+            "user": "circuit_champion",
+            "time": "0:35:790"
+        },
+        {
+            "user": "momentum_master",
+            "time": "0:35:920"
+        },
+        {
+            "user": "chase_car",
+            "time": "0:36:050"
+        },
+        {
+            "user": "drag_daddy",
+            "time": "0:36:180"
+        },
+        {
+            "user": "road_reaper",
+            "time": "0:36:310"
+        },
+        {
+            "user": "acceleration_addict",
+            "time": "0:36:440"
+        },
+        {
+            "user": "wheel_wizard",
+            "time": "0:36:570"
+        }
+    ],
+    "European Hot Hatch Challenge 500 at N\u00c3\u00bcrburgring Nordschleife": [
+        {
+            "user": "german_grip",
+            "time": "7:12:500"
+        },
+        {
+            "user": "autobahn_ace",
+            "time": "7:12:345"
+        },
+        {
+            "user": "nordschleife_nut",
+            "time": "7:12:780"
+        },
+        {
+            "user": "track_hunter",
+            "time": "7:12:999"
+        },
+        {
+            "user": "speed_demon_de",
+            "time": "7:13:150"
+        },
+        {
+            "user": "ring_runner",
+            "time": "7:13:300"
+        },
+        {
+            "user": "green_hell_goer",
+            "time": "7:13:480"
+        },
+        {
+            "user": "apex_predator",
+            "time": "7:13:650"
+        },
+        {
+            "user": "hatchback_hero",
+            "time": "7:13:820"
+        },
+        {
+            "user": "trackday_terry",
+            "time": "7:13:990"
+        },
+        {
+            "user": "curve_commander",
+            "time": "7:14:150"
+        },
+        {
+            "user": "european_express",
+            "time": "7:14:300"
+        },
+        {
+            "user": "precision_pete",
+            "time": "7:14:480"
+        },
+        {
+            "user": "circuit_slugger",
+            "time": "7:14:650"
+        },
+        {
+            "user": "fast_frank",
+            "time": "7:14:820"
+        },
+        {
+            "user": "hot_lap_harold",
+            "time": "7:14:990"
+        },
+        {
+            "user": "racetrack_ron",
+            "time": "7:15:150"
+        },
+        {
+            "user": "endurance_ed",
+            "time": "7:15:300"
+        },
+        {
+            "user": "tight_turn_tim",
+            "time": "7:15:480"
+        },
+        {
+            "user": "lap_master_luke",
+            "time": "7:15:650"
+        }
+    ],
+    "American Muscle Car Series 700 at Daytona International Speedway": [
+        {
+            "user": "thunder_road",
+            "time": "0:45:120"
+        },
+        {
+            "user": "muscle_mike",
+            "time": "0:45:280"
+        },
+        {
+            "user": "daytona_dreamer",
+            "time": "0:45:400"
+        },
+        {
+            "user": "v8_virtuoso",
+            "time": "0:45:555"
+        },
+        {
+            "user": "straight_line_steve",
+            "time": "0:45:700"
+        },
+        {
+            "user": "oval_overlord",
+            "time": "0:45:850"
+        },
+        {
+            "user": "horsepower_hank",
+            "time": "0:46:000"
+        },
+        {
+            "user": "speedway_sam",
+            "time": "0:46:150"
+        },
+        {
+            "user": "burnout_bobby",
+            "time": "0:46:300"
+        },
+        {
+            "user": "flag_fanatic",
+            "time": "0:46:450"
+        },
+        {
+            "user": "draft_dominator",
+            "time": "0:46:600"
+        },
+        {
+            "user": "track_terror",
+            "time": "0:46:750"
+        },
+        {
+            "user": "pony_power",
+            "time": "0:46:900"
+        },
+        {
+            "user": "strip_strider",
+            "time": "0:47:050"
+        },
+        {
+            "user": "legendary_lane",
+            "time": "0:47:200"
+        },
+        {
+            "user": "grid_ghost",
+            "time": "0:47:350"
+        },
+        {
+            "user": "champion_charlie",
+            "time": "0:47:500"
+        },
+        {
+            "user": "blazing_bill",
+            "time": "0:47:650"
+        },
+        {
+            "user": "revvin_ryan",
+            "time": "0:47:800"
+        },
+        {
+            "user": "fastest_frankie",
+            "time": "0:47:950"
+        }
+    ],
+    "Nurburgring Madness 200 laps!": [
+        {
+            "user": "Jo\u1952",
+            "time": "5:10:010"
+        }
+    ]
 }
