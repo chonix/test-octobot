@@ -12,28 +12,37 @@ intents = discord.Intents.default()
 intents.message_content = True
 
 bot = commands.Bot(command_prefix="!", intents=intents)
-DATA_FILE = "submissions.json"
+SUBMISSIONS_FILE = "submissions.json"
 TRACKS_FILE = "circuits.json"
+CARS_FILE = "cars.json"
+VALID_TYRES = ["CH", "CM", "CS", "SH", "SM", "SS", "RH", "RM", "RS", "IM", "W"]
 
-def load_data():
-    if os.path.exists(DATA_FILE):
-        with open(DATA_FILE, "r") as f:
+def load_data(filename):
+    if os.path.exists(filename):
+        with open(filename, "r") as f:
             return json.load(f)
     return {}
 
-def save_data(data):
-    with open(DATA_FILE, "w") as f:
+def save_data(data, filename):
+    with open(filename, "w") as f:
         json.dump(data, f, indent=4)
 
-def load_tracks():
-    if os.path.exists(TRACKS_FILE):
-        with open(TRACKS_FILE, "r") as f:
+def load_cars():
+    if os.path.exists(CARS_FILE):
+        with open(CARS_FILE, "r") as f:
             return json.load(f)
-    return {}
+    return {"cars": []}
+
+def add_car_to_database(car_name):
+    """Add a new car to the cars database if it doesn't exist"""
+    cars_data = load_cars()
+    if car_name not in cars_data["cars"]:
+        cars_data["cars"].append(car_name)
+        save_data(cars_data, CARS_FILE)
 
 # Autocomplete function for event names
 async def event_autocomplete(interaction: discord.Interaction, current: str):
-    data = load_data()
+    data = load_data(SUBMISSIONS_FILE)
     events = list(data.keys())
     # Filter events that start with the current input (case-insensitive)
     filtered = [event for event in events if current.lower() in event.lower()]
@@ -43,10 +52,30 @@ async def event_autocomplete(interaction: discord.Interaction, current: str):
         for event in filtered[:25]
     ]
 
+# Autocomplete function for cars
+async def car_autocomplete(interaction: discord.Interaction, current: str):
+    cars_data = load_cars()
+    cars = cars_data.get("cars", [])
+    # Filter cars that contain the current input (case-insensitive, fuzzy matching)
+    filtered = [car for car in cars if current.lower() in car.lower()]
+    # Return up to 25 choices (Discord's limit)
+    return [
+        discord.app_commands.Choice(name=car, value=car)
+        for car in filtered[:25]
+    ]
+
+# Autocomplete function for tyres
+async def tyre_autocomplete(interaction: discord.Interaction, current: str):
+    filtered = [tyre for tyre in VALID_TYRES if current.upper() in tyre]
+    return [
+        discord.app_commands.Choice(name=tyre, value=tyre)
+        for tyre in filtered[:25]
+    ]
+
 # Autocomplete function for regions
 async def region_autocomplete(interaction: discord.Interaction, current: str):
-    regions = ["asia", "america", "europe", "all"]
-    # Add snow_dirt to options if dirt parameter is enabled (we can't check it here, so always include it)
+    regions = ["asia", "america", "europe", "fictional", "all"]
+    # Add snow_dirt to options
     regions.append("snow_dirt")
     # Filter regions that start with the current input (case-insensitive)
     filtered = [region for region in regions if current.lower() in region.lower()]
@@ -64,54 +93,79 @@ async def region_autocomplete(interaction: discord.Interaction, current: str):
 # /remove            - Removes an event
 # /randomize_track   - Selects a random Gran Turismo track from specified region
 
-
 @bot.tree.command(name="submit", description="Submit your time for an event")
 @discord.app_commands.describe(
     event_name="The name of the event to submit to",
-    time="Your time in HH:MM:SSS or MM:SS.MMM format"
+    time="Your time in HH:MM:SSS or MM:SS.MMM format",
+    car="Car used in the challenge",
+    pp="Performance Points",
+    tyres="Type of Tyres used"
 )
-@discord.app_commands.autocomplete(event_name=event_autocomplete)
-async def submit(interaction: discord.Interaction, event_name: str, time: str):
-    data = load_data()
+@discord.app_commands.autocomplete(
+    event_name=event_autocomplete,
+    car=car_autocomplete,
+    tyres=tyre_autocomplete
+)
+async def submit(interaction: discord.Interaction, event_name: str, time: str, car: str, pp: int, tyres: str):
+    data = load_data(SUBMISSIONS_FILE)
     if event_name not in data:
         data[event_name] = []
     
     # Check for : or . in submission
     if not (':' in time or '.' in time):
-        await interaction.response.send_message(f"Please submit time format in HH:MM:SSS or MM:SS.MMM")
-    else:
-        data[event_name].append({"user": interaction.user.display_name, "time": time})
-        save_data(data)
-        await interaction.response.send_message(f"{interaction.user.mention} submitted time `{time}` for event `{event_name}`!")
+        await interaction.response.send_message("Please submit time format in HH:MM:SSS or MM:SS.MMM")
+        return
+    
+    # Check for tyre types from list
+    if tyres.upper() not in VALID_TYRES:
+        await interaction.response.send_message(f"Invalid tyre type. Valid options: {', '.join(VALID_TYRES)}")
+        return
+    
+    # Add car to database
+    add_car_to_database(car)
+    
+    # Create submission entry
+    submission = {
+        "user": interaction.user.display_name,
+        "time": time,
+        "car": car,
+        "pp": pp,
+        "tyres": tyres.upper()
+    }
+    
+    data[event_name].append(submission)
+    save_data(data, SUBMISSIONS_FILE)
+    
+    await interaction.response.send_message(f"{interaction.user.mention} submitted time `{time}` for event `{event_name}` using {car} with {pp}PP on {tyres.upper()} tyres!")
 
 @bot.tree.command(name="remove", description="Remove an event")
 @discord.app_commands.describe(event_name="The name of the event to remove")
 @discord.app_commands.autocomplete(event_name=event_autocomplete)
 async def remove(interaction: discord.Interaction, event_name: str):
-    data = load_data()
+    data = load_data(SUBMISSIONS_FILE)
     if event_name not in data:
         await interaction.response.send_message(f"Event `{event_name}` doesn't exist!")
         return
     
     del data[event_name]
-    save_data(data)
+    save_data(data, SUBMISSIONS_FILE)
     await interaction.response.send_message(f"{interaction.user.mention} removed event `{event_name}` :(")
 
 @bot.tree.command(name="addchallenge", description="Add a new challenge/event")
 @discord.app_commands.describe(event_name="The name of the new event to create")
 async def addchallenge(interaction: discord.Interaction, event_name: str):
-    data = load_data()
+    data = load_data(SUBMISSIONS_FILE)
     if event_name in data:
         await interaction.response.send_message(f"Event `{event_name}` already exists!")
         return
     
     data[event_name] = []
-    save_data(data)
+    save_data(data, SUBMISSIONS_FILE)
     await interaction.response.send_message(f"Created new event: `{event_name}`!")
 
 @bot.tree.command(name="showchallenges", description="Show all current challenges")
 async def showchallenges(interaction: discord.Interaction):
-    data = load_data()
+    data = load_data(SUBMISSIONS_FILE)
     if not data:
         await interaction.response.send_message("No challenges have been added yet.")
         return
@@ -123,7 +177,7 @@ async def showchallenges(interaction: discord.Interaction):
 @discord.app_commands.describe(event_name="Specific event to show leaderboard for (optional)")
 @discord.app_commands.autocomplete(event_name=event_autocomplete)
 async def leaderboard(interaction: discord.Interaction, event_name: str = None):
-    data = load_data()
+    data = load_data(SUBMISSIONS_FILE)
     
     def parse_time(t):
         """Convert M:SS:MMM or M:SS.MMM into total seconds (float) for sorting."""
@@ -147,7 +201,10 @@ async def leaderboard(interaction: discord.Interaction, event_name: str = None):
         entries = sorted(data[event_name], key=lambda x: parse_time(x["time"]))
         msg = f"**Leaderboard for {event_name}**\n"
         for i, entry in enumerate(entries, start=1):
-            msg += f"{i}. {entry['user']} - {entry['time']}\n"
+            car_info = f" ({entry.get('car', 'N/A')})" if entry.get('car') else ""
+            pp_info = f" - {entry.get('pp', 'N/A')}PP" if entry.get('pp') is not None else ""
+            tyre_info = f" on {entry.get('tyres', 'N/A')}" if entry.get('tyres') else ""
+            msg += f"{i}. {entry['user']} - {entry['time']}{car_info}{pp_info}{tyre_info}\n"
         await interaction.response.send_message(msg)
     else:
         # Show all leaderboards
@@ -156,7 +213,10 @@ async def leaderboard(interaction: discord.Interaction, event_name: str = None):
             entries = sorted(submissions, key=lambda x: parse_time(x["time"]))
             msg = f"**Leaderboard for {event}**\n"
             for i, entry in enumerate(entries, start=1):
-                msg += f"{i}. {entry['user']} - {entry['time']}\n"
+                car_info = f" ({entry.get('car', 'N/A')})" if entry.get('car') else ""
+                pp_info = f" - {entry.get('pp', 'N/A')}PP" if entry.get('pp') is not None else ""
+                tyre_info = f" on {entry.get('tyres', 'N/A')}" if entry.get('tyres') else ""
+                msg += f"{i}. {entry['user']} - {entry['time']}{car_info}{pp_info}{tyre_info}\n"
             await interaction.followup.send(msg)
 
 @bot.tree.command(name="randomize_track", description="Get a random Gran Turismo track from a specific region")
@@ -166,7 +226,7 @@ async def leaderboard(interaction: discord.Interaction, event_name: str = None):
 )
 @discord.app_commands.autocomplete(region=region_autocomplete)
 async def randomize_track(interaction: discord.Interaction, region: str, dirt: bool = False):
-    tracks_data = load_tracks()
+    tracks_data = load_data(TRACKS_FILE)
     
     if not tracks_data:
         await interaction.response.send_message(f"Track data file not found. Please make sure `{TRACKS_FILE}` exists in server side.")
@@ -229,6 +289,5 @@ async def on_ready():
         print(f"Synced {len(synced)} command(s)")
     except Exception as e:
         print(f"Failed to sync commands: {e}")
-
 
 bot.run(TOKEN)
